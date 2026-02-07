@@ -68,125 +68,194 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ============================================================
-     HERO
+     PAGE HERO
      ============================================================ -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-
-  <div class="hero-content">
-   
-
-    <h1>Bringing <span class="highlight">Hope</span> to Remote Himalayan Communities</h1>
-    <p class="hero-sub">We empower vulnerable children, differently-abled individuals, and families living in Nepal's most geographically challenging regions through education, healthcare, shelter, and sustainable livelihood programs.</p>
-
-    <div class="hero-btns">
-      <a href="#donate" class="btn btn-orange">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-        </svg>
-        Make a Donation
-      </a>
-      <a href="about.html" class="btn btn-outline">Learn More</a>
-    </div>
-  </div>
-
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path fill="#fafaf8" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"/>
-    </svg>
+<section class="page-hero">
+  <div class="page-hero-content reveal">
+    <h1>Your <span class="highlight">Generosity</span> Changes Lives</h1>
+    <p>Every contribution directly supports education, healthcare, shelter, and sustainable livelihoods for vulnerable communities in rural Nepal.</p>
   </div>
 </section>
 
 <!-- ============================================================
-     QUICK INTRO
+     DONATION SECTION (Banking + QR)
      ============================================================ -->
-<section class="quick-intro">
+<section class="donation-section">
   <div class="container">
-    <div class="quick-intro-content reveal">
-      <h2>Transforming Lives in Rural Nepal</h2>
-      <p>HNHF provides education, healthcare, shelter, and livelihood support to the most vulnerable communities in Okhaldhunga's remote mountain regions. Every program is designed to create lasting, sustainable change.</p>
-      <div class="btn-group">
-        <a href="about.html" class="btn btn-primary">About Our Mission</a>
-        <a href="projects.html" class="btn btn-outline">View Our Projects</a>
+    <div class="donation-intro reveal">
+      <span class="tag">Support Our Mission</span>
+      <h2>How to Donate</h2>
+      <p>You can make a direct bank transfer or use our QR code for easy mobile payment. After completing your donation, please fill out the form below so we can send you a confirmation.</p>
+    </div>
+
+    <div class="donation-grid">
+      <!-- Bank Details -->
+      <div class="bank-card reveal">
+        <h3>
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+          Bank Details
+        </h3>
+
+        <div class="bank-detail-item">
+          <div class="bank-detail-label">Bank Name</div>
+          <div class="bank-detail-value">
+            Rastriya Banijya Bank (RBB)
+          </div>
+        </div>
+
+        <div class="bank-detail-item">
+          <div class="bank-detail-label">Account Name</div>
+          <div class="bank-detail-value">
+            Help Nepal Himalayan Foundation
+          </div>
+        </div>
+
+        <div class="bank-detail-item">
+          <div class="bank-detail-label">Account Number</div>
+          <div class="bank-detail-value">
+            <span id="accountNumber">0123456789012345</span>
+            <button class="copy-btn" onclick="copyToClipboard('accountNumber')">Copy</button>
+          </div>
+        </div>
+
+        <div class="bank-detail-item">
+          <div class="bank-detail-label">Branch</div>
+          <div class="bank-detail-value">
+            Okhaldhunga Branch
+          </div>
+        </div>
+      </div>
+
+      <!-- QR Code -->
+      <div class="qr-card reveal reveal-delay-1">
+        <h3>Scan QR Code</h3>
+        <div class="qr-code-wrapper">
+          <!-- Placeholder QR Code - replace with actual QR image -->
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Donation QR Code" />
+        </div>
+        <p class="qr-instruction">Scan this QR code with your mobile banking app to donate instantly. After payment, please submit the form below.</p>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- ============================================================
-     OUR AIMS
+     DONATION FORM
      ============================================================ -->
-<section class="aims" id="aims">
+<section class="donation-form-section">
   <div class="container">
-    <div class="aims-header reveal">
-      <div class="section-tag">What We Do</div>
-      <h2 class="section-title">Our Core Pillars</h2>
-      <p class="section-subtitle">Four fundamental programs designed to address the deepest needs of rural Nepal's most vulnerable populations.</p>
-    </div>
+    <div class="form-card reveal">
+      <h3>Confirm Your Donation</h3>
+      <p class="form-subtitle">Please confirm your details so we can send you a confirmation by email.</p>
 
-    <div class="aims-grid">
-      <!-- Pillar 1 -->
-      <article class="aim-card reveal">
-        <div class="aim-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+      <form id="donationForm" onsubmit="handleFormSubmit(event)">
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label" for="donorEmail">
+            Email Address <span class="required">*</span>
+          </label>
+          <input 
+            type="email" 
+            id="donorEmail" 
+            name="email" 
+            class="form-input" 
+            placeholder="your.email@example.com" 
+            required 
+          />
+          <p class="form-helper">We'll send your donation receipt to this email.</p>
         </div>
-        <h3>Children's Education & Care</h3>
-        <p>Comprehensive support including education, healthcare, nutrition, shelter, and boarding for orphaned, poor, and differently-abled children.</p>
-      </article>
 
-      <!-- Pillar 2 -->
-      <article class="aim-card reveal reveal-delay-1">
-        <div class="aim-icon">
-          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        <!-- Donation Amount -->
+        <div class="form-group">
+          <label class="form-label" for="donationAmount">
+            Donation Amount (NPR) <span class="required">*</span>
+          </label>
+          <input 
+            type="number" 
+            id="donationAmount" 
+            name="amount" 
+            class="form-input" 
+            placeholder="e.g., 1000" 
+            min="1"
+            required 
+          />
         </div>
-        <h3>Vulnerable Individual Support</h3>
-        <p>Food, clothing, and essential care for chronically ill, homeless, and single women and men with no family support network.</p>
-      </article>
 
-      <!-- Pillar 3 -->
-      <article class="aim-card reveal reveal-delay-2">
-        <div class="aim-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        <!-- Transaction Receipt Upload -->
+        <div class="form-group">
+          <label class="form-label" for="receiptUpload">
+            Transaction Receipt <span class="required">*</span>
+          </label>
+          <input 
+            type="file" 
+            id="receiptUpload" 
+            name="receipt" 
+            class="file-upload-input" 
+            accept="image/*,.pdf"
+            required 
+          />
+          <p class="form-helper">Please upload a screenshot or photo of your payment confirmation (JPG, PNG, or PDF).</p>
         </div>
-        <h3>Agriculture & Livelihood</h3>
-        <p>Practical farming knowledge and hands-on training for capable youth and landless poor to build sustainable, independent livelihoods.</p>
-      </article>
 
-      <!-- Pillar 4 -->
-      <article class="aim-card reveal reveal-delay-3">
-        <div class="aim-icon">
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">
+          Submit Donation Details
+        </button>
+
+        <!-- Note -->
+        <div class="form-note">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+          <p><strong>Thank you for your generosity!</strong> We'll review your donation and send a confirmation email within 24-48 hours.</p>
         </div>
-        <h3>Disaster Relief</h3>
-        <p>Rapid emergency response during natural disasters—providing food, water, temporary shelter, and medical aid to affected local communities.</p>
-      </article>
+      </form>
     </div>
   </div>
 </section>
 
 
-<!-- ============================================================
-     DONATION CTA
-     ============================================================ -->
-<section class="donation-simple" id="donate">
-  <div class="container">
-    <div class="donation-inner reveal">
-      <h2>Your Support Changes Lives</h2>
-      <p>Every contribution directly provides education, healthcare, food, shelter, and hope to vulnerable communities in rural Nepal.</p>
 
-      
 
-      <a href="#" class="btn btn-orange">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-        </svg>
-        Donate Now
-      </a>
-    </div>
-  </div>
-</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- ============================================================
      FOOTER
@@ -230,7 +299,7 @@
 
     <div class="footer-bottom">
       <p>&copy; 2025 Help Nepal Himalayan Foundation. All rights reserved.</p>
-      <p style="font-size:.76rem; ">Estd: 2082 BS</p>
+      <p style="font-size:.76rem; color:rgba(255,255,255,.5);">Estd: 2082 BS</p>
     </div>
   </div>
 </footer>
@@ -268,6 +337,63 @@ function setAmount(btn, val) {
 }
 function clearActive() {
   document.querySelectorAll('.don-btn:not(.custom-input)').forEach(b => b.classList.remove('active'));
+}
+</script>
+
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// Scroll Reveal
+(function () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+// Copy to Clipboard
+function copyToClipboard(elementId) {
+  const text = document.getElementById(elementId).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.background = 'var(--clr-green)';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 2000);
+  }).catch(err => {
+    alert('Failed to copy: ' + err);
+  });
+}
+
+// Form Submit Handler
+function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  // Get form data
+  const formData = new FormData(event.target);
+  const email = formData.get('email');
+  const amount = formData.get('amount');
+  const receipt = formData.get('receipt');
+  
+  // Here you would typically send this to your server
+  // For now, just show a success message
+  alert(`Thank you! We've received your donation details.\n\nEmail: ${email}\nAmount: NPR ${amount}\n\nWe'll send a confirmation to your email within 24-48 hours.`);
+  
+  // Reset form
+  event.target.reset();
 }
 </script>
 </body>

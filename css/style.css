@@ -2292,3 +2292,327 @@ footer {
   .gallery-grid      { grid-template-columns: 1fr; gap: 16px; }
   .lightbox-close    { top: 10px; right: 10px; width: 38px; height: 38px; font-size: 1.6rem; }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   DONATION SECTION
+   ===================================================== */
+.donation-section {
+  padding: 100px 0;
+  background: var(--clr-bg-warm);
+}
+
+.donation-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px;
+}
+.donation-intro h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+  font-weight: 900;
+  color: var(--clr-navy);
+  line-height: 1.2;
+  margin: 12px 0 16px;
+}
+.donation-intro p {
+  color: var(--clr-text-light);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.donation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Bank Details Card */
+.bank-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--clr-border);
+}
+.bank-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-navy);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.bank-card h3 svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--clr-green);
+}
+.bank-detail-item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--clr-border);
+}
+.bank-detail-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.bank-detail-label {
+  font-size: .82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--clr-text-light);
+  margin-bottom: 6px;
+}
+.bank-detail-value {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--clr-navy);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.copy-btn {
+  padding: 6px 12px;
+  background: var(--clr-green-lt);
+  color: var(--clr-green);
+  border-radius: 6px;
+  font-size: .75rem;
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.copy-btn:hover {
+  background: var(--clr-green);
+  color: #fff;
+}
+
+/* QR Code Card */
+.qr-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--clr-border);
+  text-align: center;
+}
+.qr-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-navy);
+  margin-bottom: 20px;
+}
+.qr-code-wrapper {
+  background: var(--clr-bg-warm);
+  border: 2px dashed var(--clr-border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+.qr-code-wrapper img {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+}
+.qr-instruction {
+  font-size: .9rem;
+  color: var(--clr-text-light);
+  line-height: 1.6;
+}
+
+/* Donation Form */
+.donation-form-section {
+  padding: 80px 0 100px;
+  background: var(--clr-bg);
+}
+.form-card {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--clr-border);
+}
+.form-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--clr-navy);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.form-card .form-subtitle {
+  text-align: center;
+  color: var(--clr-text-light);
+  font-size: .95rem;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+.form-label {
+  display: block;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--clr-text);
+  margin-bottom: 8px;
+}
+.form-label .required {
+  color: var(--clr-orange);
+  margin-left: 4px;
+}
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--clr-border);
+  border-radius: var(--radius);
+  font-size: .95rem;
+  font-family: var(--font-body);
+  color: var(--clr-text);
+  transition: var(--transition);
+  background: var(--clr-bg);
+}
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--clr-green);
+  box-shadow: 0 0 0 3px var(--clr-green-lt);
+}
+.form-input::placeholder {
+  color: var(--clr-text-light);
+  opacity: .6;
+}
+
+.file-upload-wrapper {
+  position: relative;
+}
+.file-upload-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px dashed var(--clr-border);
+  border-radius: var(--radius);
+  font-size: .9rem;
+  color: var(--clr-text-light);
+  background: var(--clr-bg-warm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.file-upload-input:hover {
+  border-color: var(--clr-green);
+  background: var(--clr-green-lt);
+}
+input[type="file"] {
+  cursor: pointer;
+}
+input[type="file"]::file-selector-button {
+  padding: 8px 16px;
+  background: var(--clr-green);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: var(--transition);
+}
+input[type="file"]::file-selector-button:hover {
+  background: var(--clr-green-dk);
+}
+
+.form-helper {
+  font-size: .8rem;
+  color: var(--clr-text-light);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 18px 32px;
+  background: var(--clr-orange);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(245,166,35,.35);
+  transition: var(--transition);
+  margin-top: 32px;
+}
+.submit-btn:hover {
+  background: var(--clr-orange-dk);
+  box-shadow: 0 6px 24px rgba(245,166,35,.45);
+  transform: translateY(-2px);
+}
+
+.form-note {
+  background: var(--clr-green-lt);
+  border-left: 4px solid var(--clr-green);
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-top: 24px;
+  font-size: .88rem;
+  color: var(--clr-text);
+  line-height: 1.6;
+  display: flex;
+  align-items: start;
+  gap: 12px;
+}
+.form-note svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--clr-green);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 900px) {
+  .donation-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-card {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-hero {
+    min-height: 45vh;
+  }
+  .page-hero-content {
+    padding: 60px 20px;
+  }
+  .donation-section {
+    padding: 70px 0;
+  }
+  .bank-card,
+  .qr-card {
+    padding: 28px 24px;
+  }
+}
