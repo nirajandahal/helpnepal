@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Help Nepal Himalayan Foundation – HNHF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/style.css ">
+
+</head>
+<body>
+
+
+
+
+<!-- ============================================================
+     NAVBAR - CENTERED LOGO WITH SPLIT NAVIGATION
+     ============================================================ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <!-- Left side navigation items -->
+    <div class="nav-links-right">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+    </div>
+    
+    <!-- Centered Logo -->
+    <a href="#" class="nav-logo" aria-label="HNHF Home">
+      <img src="help-nepal-logo.png" alt="Help Nepal Himalayan Foundation Logo" />
+    </a>
+    
+    <!-- Right side navigation items -->
+    <div class="nav-links-left">
+      <a href="gallery.html">Gallery</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="#donate" class="nav-cta">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Donate Now
+      </a>
+    </div>
+    
+    <!-- Mobile hamburger menu -->
+    <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.add('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <button class="mobile-close" aria-label="Close menu" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+  <a href="index.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
+  <a href="about.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+  <a href="projects.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Projects</a>
+  <a href="gallery.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Gallery</a>
+  <a href="news.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">News</a>
+  <a href="contact.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+  <a href="#donate" onclick="document.getElementById('mobileMenu').classList.remove('open')">
+    <span class="btn btn-orange" style="margin-top:16px;">Donate Now</span>
+  </a>
+</div>
+
+
+
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+   
+
+    <h1>Bringing <span class="highlight">Hope</span> to Remote Himalayan Communities</h1>
+    <p class="hero-sub">We empower vulnerable children, differently-abled individuals, and families living in Nepal's most geographically challenging regions through education, healthcare, shelter, and sustainable livelihood programs.</p>
+
+    <div class="hero-btns">
+      <a href="#donate" class="btn btn-orange">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        Make a Donation
+      </a>
+      <a href="about.html" class="btn btn-outline">Learn More</a>
+    </div>
+  </div>
+
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#fafaf8" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUICK INTRO
+     ============================================================ -->
+<section class="quick-intro">
+  <div class="container">
+    <div class="quick-intro-content reveal">
+      <h2>Transforming Lives in Rural Nepal</h2>
+      <p>HNHF provides education, healthcare, shelter, and livelihood support to the most vulnerable communities in Okhaldhunga's remote mountain regions. Every program is designed to create lasting, sustainable change.</p>
+      <div class="btn-group">
+        <a href="about.html" class="btn btn-primary">About Our Mission</a>
+        <a href="projects.html" class="btn btn-outline">View Our Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     OUR AIMS
+     ============================================================ -->
+<section class="aims" id="aims">
+  <div class="container">
+    <div class="aims-header reveal">
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Our Core Pillars</h2>
+      <p class="section-subtitle">Four fundamental programs designed to address the deepest needs of rural Nepal's most vulnerable populations.</p>
+    </div>
+
+    <div class="aims-grid">
+      <!-- Pillar 1 -->
+      <article class="aim-card reveal">
+        <div class="aim-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+        </div>
+        <h3>Children's Education & Care</h3>
+        <p>Comprehensive support including education, healthcare, nutrition, shelter, and boarding for orphaned, poor, and differently-abled children.</p>
+      </article>
+
+      <!-- Pillar 2 -->
+      <article class="aim-card reveal reveal-delay-1">
+        <div class="aim-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <h3>Vulnerable Individual Support</h3>
+        <p>Food, clothing, and essential care for chronically ill, homeless, and single women and men with no family support network.</p>
+      </article>
+
+      <!-- Pillar 3 -->
+      <article class="aim-card reveal reveal-delay-2">
+        <div class="aim-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        </div>
+        <h3>Agriculture & Livelihood</h3>
+        <p>Practical farming knowledge and hands-on training for capable youth and landless poor to build sustainable, independent livelihoods.</p>
+      </article>
+
+      <!-- Pillar 4 -->
+      <article class="aim-card reveal reveal-delay-3">
+        <div class="aim-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        </div>
+        <h3>Disaster Relief</h3>
+        <p>Rapid emergency response during natural disasters—providing food, water, temporary shelter, and medical aid to affected local communities.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     DONATION CTA
+     ============================================================ -->
+<section class="donation-simple" id="donate">
+  <div class="container">
+    <div class="donation-inner reveal">
+      <h2>Your Support Changes Lives</h2>
+      <p>Every contribution directly provides education, healthcare, food, shelter, and hope to vulnerable communities in rural Nepal.</p>
+
+      
+
+      <a href="#" class="btn btn-orange">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        Donate Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="help-nepal-logo.png" alt="HNHF Logo" class="footer-logo" />
+        <p>Bringing education, healthcare, shelter, and sustainable livelihood to Nepal's most vulnerable communities.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="news.html">News</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:nepalfoundation86@gmail.com">nepalfoundation86@gmail.com</a>
+        <a href="tel:+9779483007026">+977 9483007026</a>
+        <a href="tel:+9779841164331">+977 9841164331</a>
+        <a href="#">Molung-6, Okhaldhunga</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Help Nepal Himalayan Foundation. All rights reserved.</p>
+      <p style="font-size:.76rem; ">Estd: 2082 BS</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// Navbar shadow on scroll
+(function () {
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+})();
+
+// Scroll Reveal
+(function () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+// Donation amount buttons
+function setAmount(btn, val) {
+  document.querySelectorAll('.don-btn:not(.custom-input)').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('customAmount').value = '';
+}
+function clearActive() {
+  document.querySelectorAll('.don-btn:not(.custom-input)').forEach(b => b.classList.remove('active'));
+}
+</script>
+</body>
+</html>
