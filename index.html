@@ -66,19 +66,47 @@
 
 
 
-
-
 <!-- ============================================================
-     HERO
+     HERO SECTION HTML
      ============================================================ -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
+<section class="hero" id="home" aria-label="Hero banner">
 
+  <!-- ── Background slides (images only) ── -->
+  <div class="hero-slides" aria-hidden="true">
+    <!-- Slide 1 -->
+    <div class="hero-slide active"
+         style="background-image:url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1600&q=85')">
+    </div>
+    <!-- Slide 2 -->
+    <div class="hero-slide"
+         style="background-image:url('https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=1600&q=85')">
+    </div>
+    <!-- Slide 3 -->
+    <div class="hero-slide"
+         style="background-image:url('https://images.unsplash.com/photo-1591377422565-0f0f3ed3cce4?w=1600&q=85')">
+    </div>
+    <!-- Slide 4 -->
+    <div class="hero-slide"
+         style="background-image:url('https://images.unsplash.com/photo-1469521669194-babb45599def?w=1600&q=85')">
+    </div>
+  </div>
+
+  <!-- ── Content overlay ── -->
   <div class="hero-content">
-   
 
-    <h1>Bringing <span class="highlight">Hope</span> to Remote Himalayan Communities</h1>
-    <p class="hero-sub">We empower vulnerable children, differently-abled individuals, and families living in Nepal's most geographically challenging regions through education, healthcare, shelter, and sustainable livelihood programs.</p>
+    
+
+    <!-- Dynamic text block — updated by JS -->
+    <div class="slide-text-wrap">
+      <h1 class="hero-dynamic-title" id="slideTitle">
+        Bringing <span class="highlight">Hope</span> to Remote Himalayan Communities
+      </h1>
+    </div>
+    <div class="slide-text-wrap" style="margin-top:4px">
+      <p class="hero-dynamic-sub" id="slideSub">
+        We empower vulnerable children, differently-abled individuals, and families living in Nepal's most geographically challenging regions through education, healthcare, shelter, and sustainable livelihood programs.
+      </p>
+    </div>
 
     <div class="hero-btns">
       <a href="#donate" class="btn btn-orange">
@@ -91,12 +119,25 @@
     </div>
   </div>
 
+  <!-- ── Prev / Next Arrows ── -->
+  <button class="slider-arrow slider-arrow-prev" id="arrowPrev" aria-label="Previous slide">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="slider-arrow slider-arrow-next" id="arrowNext" aria-label="Next slide">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <!-- ── Dot indicators ── -->
+  <div class="slider-dots" role="tablist" aria-label="Slide indicators" id="sliderDots"></div>
+
+  <!-- ── Bottom wave ── -->
   <div class="hero-wave">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#fafaf8" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"/>
     </svg>
   </div>
 </section>
+
 
 <!-- ============================================================
      QUICK INTRO
@@ -270,5 +311,177 @@ function clearActive() {
   document.querySelectorAll('.don-btn:not(.custom-input)').forEach(b => b.classList.remove('active'));
 }
 </script>
+
+
+
+
+
+
+<script>
+(function () {
+  /* ── Slide Data ──────────────────────────────────────────── */
+  const slides = [
+    {
+      title: 'Bringing <span class="highlight">Hope</span> to Remote Himalayan Communities',
+      sub:   "We empower vulnerable children, differently-abled individuals, and families living in Nepal's most geographically challenging regions through education, healthcare, shelter, and sustainable livelihood programs."
+    },
+    {
+      title: 'Educating the <span class="highlight">Next Generation</span> of Nepal',
+      sub:   "Every child deserves quality education regardless of geography. Our school-building and scholarship programs have helped over 2,400 children access learning in the most remote Himalayan villages."
+    },
+    {
+      title: 'Healthcare That <span class="highlight">Reaches</span> Every Village',
+      sub:   "Distance should never be a barrier to health. Our mobile medical camps, trained community health workers, and telemedicine programs bring vital care directly to families who need it most."
+    },
+    {
+      title: 'Building <span class="highlight">Sustainable</span> Livelihoods Together',
+      sub:   "From vocational training to micro-finance initiatives, we equip Himalayan communities with the skills and resources to build lasting economic independence and a brighter future."
+    }
+  ];
+
+  /* ── State ───────────────────────────────────────────────── */
+  let current     = 0;
+  let previous    = -1;
+  let direction   = 'next';
+  let isAnimating = false;
+  let autoTimer;
+  const AUTOPLAY_MS = 5000;
+
+  /* ── DOM Refs ────────────────────────────────────────────── */
+  const slideEls  = document.querySelectorAll('.hero-slide');
+  const titleEl   = document.getElementById('slideTitle');
+  const subEl     = document.getElementById('slideSub');
+  const dotsWrap  = document.getElementById('sliderDots');
+  const arrowPrev = document.getElementById('arrowPrev');
+  const arrowNext = document.getElementById('arrowNext');
+  const heroEl    = document.querySelector('.hero');
+
+  /* ── Build Dots ──────────────────────────────────────────── */
+  const total = slides.length;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function getDots() { return dotsWrap.querySelectorAll('.slider-dot'); }
+
+  /* ── Go to Slide ─────────────────────────────────────────── */
+  function goTo(index, dir) {
+    if (isAnimating || index === current) return;
+    isAnimating = true;
+
+    previous  = current;
+    direction = dir || (index > current ? 'next' : 'prev');
+    current   = index;
+
+    const prevSlide = slideEls[previous];
+    const nextSlide = slideEls[current];
+
+    // Position incoming slide off-screen
+    nextSlide.style.transform = direction === 'next' ? 'translateX(100%)' : 'translateX(-100%)';
+    nextSlide.style.transition = 'none';
+    nextSlide.classList.remove('active', 'prev');
+
+    // Force reflow
+    void nextSlide.offsetWidth;
+
+    // Animate both slides
+    nextSlide.style.transition = '';
+    prevSlide.style.transition = '';
+
+    nextSlide.classList.add('active');
+    nextSlide.style.zIndex = 3;
+    nextSlide.style.transform = 'translateX(0)';
+
+    prevSlide.style.zIndex = 2;
+    prevSlide.style.transform = direction === 'next' ? 'translateX(-100%)' : 'translateX(100%)';
+
+    // Update text
+    animateText(index);
+
+    // Update dots
+    getDots().forEach((d, i) => d.classList.toggle('active', i === current));
+
+    // Clean up after transition
+    setTimeout(() => {
+      prevSlide.classList.remove('active', 'prev');
+      prevSlide.style.zIndex = '';
+      prevSlide.style.transform = 'translateX(100%)';
+      nextSlide.style.zIndex = '';
+      isAnimating = false;
+    }, 760);
+
+    resetAutoplay();
+  }
+
+  /* ── Animate Text ────────────────────────────────────────── */
+  function animateText(index) {
+    titleEl.classList.remove('text-enter');
+    subEl.classList.remove('text-enter');
+    titleEl.classList.add('text-exit');
+    subEl.classList.add('text-exit');
+
+    setTimeout(() => {
+      titleEl.innerHTML = slides[index].title;
+      subEl.textContent = slides[index].sub;
+      titleEl.classList.remove('text-exit');
+      subEl.classList.remove('text-exit');
+      titleEl.classList.add('text-enter');
+      subEl.classList.add('text-enter');
+    }, 340);
+  }
+
+  /* ── Arrows ──────────────────────────────────────────────── */
+  arrowNext.addEventListener('click', () => goTo((current + 1) % total, 'next'));
+  arrowPrev.addEventListener('click', () => goTo((current - 1 + total) % total, 'prev'));
+
+  /* ── Autoplay ────────────────────────────────────────────── */
+  function resetAutoplay() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo((current + 1) % total, 'next'), AUTOPLAY_MS);
+  }
+
+  /* ── Pause on hover ──────────────────────────────────────── */
+  heroEl.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  heroEl.addEventListener('mouseleave', () => resetAutoplay());
+
+  /* ── Touch / Swipe ───────────────────────────────────────── */
+  let touchStartX = 0;
+  heroEl.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  heroEl.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goTo((current + 1) % total, 'next');
+      else          goTo((current - 1 + total) % total, 'prev');
+    }
+  }, { passive: true });
+
+  /* ── Keyboard Navigation ─────────────────────────────────── */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo((current + 1) % total, 'next');
+    if (e.key === 'ArrowLeft')  goTo((current - 1 + total) % total, 'prev');
+  });
+
+  /* ── Navbar scroll ───────────────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* ── Init ────────────────────────────────────────────────── */
+  slideEls.forEach((s, i) => {
+    if (i !== 0) s.style.transform = 'translateX(100%)';
+  });
+  autoTimer = setInterval(() => goTo((current + 1) % total, 'next'), AUTOPLAY_MS);
+})();
+</script>
+
+
+
 </body>
 </html>
