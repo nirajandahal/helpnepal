@@ -2047,7 +2047,7 @@ footer {
 }
 .story-image {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   background: linear-gradient(135deg, #c8e6d8 0%, #a3d5be 100%);
   border-radius: var(--radius-lg);
   overflow: hidden;
